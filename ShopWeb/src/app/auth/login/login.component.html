@@ -1,0 +1,28 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow p-4" style="min-width: 350px;">
+        <div class="text-center mb-2">
+            <img src="" />
+        </div>
+        <h4 class="text-center mb-3">Shop Web - Login</h4>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="mb-2">
+                <label class="form-label">E-mail</label>
+                <input type="email" class="form-control" formControlName="email" placeholder="Digite seu e-mail" required>
+                <div class="text-danger" *ngIf="form.get('email')?.touched">
+                    <div *ngIf="form.get('email')?.hasError('required')"> O campo <strong>E-mail</strong> é obrigatório. </div>
+                    <div *ngIf="form.get('email')?.hasError('email')"> O campo <strong>E-mail</strong> deve ser um e-mail válido.</div>
+                </div>
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Senha</label>
+                <input type="password" class="form-control" formControlName="password" placeholder="Digite sua senha" required>
+                <div class="text-danger" *ngIf="form.get('senha')?.touched">
+                    <div *ngIf="form.get('senha')?.hasError('required')"> O campo <strong>Senha</strong> é obrigatório.</div>
+                    <div *ngIf="form.get('senha')?.hasError('minlength')"> O campo <strong>Senha</strong> deve ter </div>
+                </div>
+            </div>
+            <button n type="submit" class="btn btn-primary mb-2 w-100" [disabled]="loginForm.invalid">Entrar</button>
+            <button type="button" class="btn btn-light mb-2 w-100"> Não possui conta? <strong>Cadastre aqui!</strong></button>
+        </form>
+    </div>
+</div>
