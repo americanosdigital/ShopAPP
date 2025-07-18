@@ -14,6 +14,7 @@ namespace ShopAPP.Application.Mappings.Customers
         public CustomerProfile()
         {
             CreateMap<Customer, CustomerResponseDto>().ReverseMap();
+
             CreateMap<CustomerCreateDto, Customer>()
                 .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => src.ImageUrl));
 

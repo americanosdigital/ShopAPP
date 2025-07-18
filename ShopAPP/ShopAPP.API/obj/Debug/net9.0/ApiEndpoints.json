@@ -24,9 +24,39 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "dto",
-        "Type": "ShopAPP.Application.DTOs.Account.RegisterUserDto",
-        "IsRequired": true
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Password",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "FullName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Document",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Role",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ImageFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "ProfileImageUrl",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -50,9 +80,29 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "dto",
-        "Type": "ShopAPP.Application.DTOs.Customers.CustomerCreateDto",
-        "IsRequired": true
+        "Name": "Name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Phone",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ImageFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "ImageUrl",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -66,9 +116,34 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "dto",
-        "Type": "ShopAPP.Application.DTOs.Customers.CustomerUpdateDto",
-        "IsRequired": true
+        "Name": "Id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "Name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Phone",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ImageFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "ImageUrl",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -272,9 +347,39 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "dto",
-        "Type": "ShopAPP.Application.DTOs.Products.ProductCreateDto",
-        "IsRequired": true
+        "Name": "Name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Price",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "Stock",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "ProductCategoryId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "ImageFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "ImageUrlString",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -288,9 +393,44 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "dto",
-        "Type": "ShopAPP.Application.DTOs.Products.ProductUpdateDto",
-        "IsRequired": true
+        "Name": "Id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "Name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Price",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "Stock",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "ProductCategoryId",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "ImageFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "ImageUrlString",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -323,6 +463,22 @@
         "Name": "id",
         "Type": "System.Guid",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShopAPP.API.Controllers.Products.ProductsController",
+    "Method": "UploadImage",
+    "RelativePath": "api/Products/upload-image",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "file",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -367,16 +523,36 @@
         "IsRequired": true
       },
       {
-        "Name": "updatedUser",
-        "Type": "ShopAPP.Infrastructure.Identity.Models.ApplicationUser",
-        "IsRequired": true
+        "Name": "FullName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Document",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ImageFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "ProfileImageUrl",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
   },
   {
     "ContainingType": "ShopAPP.API.Controllers.Account.UsersController",
-    "Method": "Delete",
+    "Method": "SoftDelete",
     "RelativePath": "api/Users/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
@@ -386,6 +562,27 @@
         "Name": "id",
         "Type": "System.String",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ShopAPP.API.Controllers.Account.UsersController",
+    "Method": "UploadProfileImage",
+    "RelativePath": "api/Users/{id}/upload-image",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "file",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

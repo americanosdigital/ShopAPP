@@ -13,24 +13,38 @@ namespace ShopAPP.Infrastructure.Identity.Mappings
     {
         public void Configure(EntityTypeBuilder<ApplicationUser> builder)
         {
+            builder.ToTable("AspNetUsers");
+
             builder.Property(u => u.FullName)
-                   .IsRequired()
-                   .HasMaxLength(100);
+                .IsRequired()
+                .HasMaxLength(150);
 
             builder.Property(u => u.Document)
-                   .IsRequired()
-                   .HasMaxLength(20);
-
-            builder.Property(u => u.IsActive)
-                   .HasDefaultValue(true);
+                .IsRequired()
+                .HasMaxLength(50);
 
             builder.Property(u => u.UserType)
-                   .IsRequired()
-                   .HasMaxLength(50)
-                   .HasDefaultValue("Customer");
+                .IsRequired()
+                .HasMaxLength(20)
+                .HasDefaultValue("Customer");
+
+            builder.Property(u => u.IsActive)
+                .HasDefaultValue(true);
 
             builder.Property(u => u.CreatedAt)
-                   .HasDefaultValueSql("GETUTCDATE()");
+                .HasDefaultValueSql("GETUTCDATE()");
+
+            builder.Property(u => u.UpdatedAt);
+
+            builder.Property(u => u.DeletedAt);
+
+            builder.Property(u => u.LastLoginAt);
+
+            builder.Property(u => u.ImageUrl)
+                .HasMaxLength(300);
+
+            builder.Property(u => u.ProfileImageUrl)
+                .HasMaxLength(300);
         }
     }
 }

@@ -1,0 +1,12 @@
+E:\Documents\Sergio_C_Sharp_WebDeveloper\Projetos\ShopAPP\ShopAPP\ShopAPP.Domain\bin\Debug\net9.0\ShopAPP.Domain.deps.json
+E:\Documents\Sergio_C_Sharp_WebDeveloper\Projetos\ShopAPP\ShopAPP\ShopAPP.Domain\bin\Debug\net9.0\ShopAPP.Domain.dll
+E:\Documents\Sergio_C_Sharp_WebDeveloper\Projetos\ShopAPP\ShopAPP\ShopAPP.Domain\bin\Debug\net9.0\ShopAPP.Domain.pdb
+E:\Documents\Sergio_C_Sharp_WebDeveloper\Projetos\ShopAPP\ShopAPP\ShopAPP.Domain\obj\Debug\net9.0\ShopAPP.Domain.GeneratedMSBuildEditorConfig.editorconfig
+E:\Documents\Sergio_C_Sharp_WebDeveloper\Projetos\ShopAPP\ShopAPP\ShopAPP.Domain\obj\Debug\net9.0\ShopAPP.Domain.AssemblyInfoInputs.cache
+E:\Documents\Sergio_C_Sharp_WebDeveloper\Projetos\ShopAPP\ShopAPP\ShopAPP.Domain\obj\Debug\net9.0\ShopAPP.Domain.AssemblyInfo.cs
+E:\Documents\Sergio_C_Sharp_WebDeveloper\Projetos\ShopAPP\ShopAPP\ShopAPP.Domain\obj\Debug\net9.0\ShopAPP.Domain.csproj.CoreCompileInputs.cache
+E:\Documents\Sergio_C_Sharp_WebDeveloper\Projetos\ShopAPP\ShopAPP\ShopAPP.Domain\obj\Debug\net9.0\ShopAPP.Domain.sourcelink.json
+E:\Documents\Sergio_C_Sharp_WebDeveloper\Projetos\ShopAPP\ShopAPP\ShopAPP.Domain\obj\Debug\net9.0\ShopAPP.Domain.dll
+E:\Documents\Sergio_C_Sharp_WebDeveloper\Projetos\ShopAPP\ShopAPP\ShopAPP.Domain\obj\Debug\net9.0\refint\ShopAPP.Domain.dll
+E:\Documents\Sergio_C_Sharp_WebDeveloper\Projetos\ShopAPP\ShopAPP\ShopAPP.Domain\obj\Debug\net9.0\ShopAPP.Domain.pdb
+E:\Documents\Sergio_C_Sharp_WebDeveloper\Projetos\ShopAPP\ShopAPP\ShopAPP.Domain\obj\Debug\net9.0\ref\ShopAPP.Domain.dll

@@ -9,11 +9,10 @@ namespace ShopAPP.Domain.Entities
 {
     public class Order : BaseEntity
     {
-        public DateTime OrderDate { get; set; } = DateTime.UtcNow;
-        public decimal Total { get; set; }
         public Guid CustomerId { get; set; }
         public Customer? Customer { get; set; }
-        public ICollection<OrderDetail> Items { get; set; } = new List<OrderDetail>();
+        public DateTime OrderDate { get; set; }
+        public decimal Total { get; set; }
+        public ICollection<OrderDetail>? Items { get; set; }
     }
-
 }

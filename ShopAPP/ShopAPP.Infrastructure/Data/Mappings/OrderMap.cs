@@ -24,15 +24,19 @@ namespace ShopAPP.Infrastructure.Data.Mappings
                 .HasColumnType("decimal(18,2)");
 
             builder.HasOne(o => o.Customer)
-                .WithMany(c => c.Orders)
-                .HasForeignKey(o => o.CustomerId);
+                  .WithMany(c => c.Orders)
+                  .HasForeignKey(o => o.CustomerId)
+                  .OnDelete(DeleteBehavior.Cascade);
 
-            builder.Property(p => p.CreatedAt)
-                .HasDefaultValueSql("GETUTCDATE()")
-                .IsRequired();
+            builder.Property(u => u.IsActive)
+                .HasDefaultValue(true);
 
-            builder.Property(p => p.UpdatedAt)
-                .IsRequired();
+            builder.Property(u => u.CreatedAt)
+           .HasDefaultValueSql("GETUTCDATE()");
+
+            builder.Property(u => u.UpdatedAt);
+
+            builder.Property(u => u.DeletedAt);
         }
     }
 }

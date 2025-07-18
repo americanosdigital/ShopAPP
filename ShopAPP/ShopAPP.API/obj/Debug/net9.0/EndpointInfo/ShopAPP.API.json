@@ -17,19 +17,65 @@
         ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/RegisterUserDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RegisterUserDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/RegisterUserDto"
+                "required": [
+                  "Document",
+                  "Email",
+                  "FullName",
+                  "Password",
+                  "Role"
+                ],
+                "type": "object",
+                "properties": {
+                  "Email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "Password": {
+                    "minLength": 6,
+                    "type": "string"
+                  },
+                  "FullName": {
+                    "type": "string"
+                  },
+                  "Document": {
+                    "type": "string"
+                  },
+                  "Role": {
+                    "type": "string"
+                  },
+                  "ImageFile": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "ProfileImageUrl": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "Email": {
+                  "style": "form"
+                },
+                "Password": {
+                  "style": "form"
+                },
+                "FullName": {
+                  "style": "form"
+                },
+                "Document": {
+                  "style": "form"
+                },
+                "Role": {
+                  "style": "form"
+                },
+                "ImageFile": {
+                  "style": "form"
+                },
+                "ProfileImageUrl": {
+                  "style": "form"
+                }
               }
             }
           }
@@ -89,19 +135,44 @@
         ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/CustomerCreateDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CustomerCreateDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CustomerCreateDto"
+                "type": "object",
+                "properties": {
+                  "Name": {
+                    "type": "string"
+                  },
+                  "Email": {
+                    "type": "string"
+                  },
+                  "Phone": {
+                    "type": "string"
+                  },
+                  "ImageFile": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "ImageUrl": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "Name": {
+                  "style": "form"
+                },
+                "Email": {
+                  "style": "form"
+                },
+                "Phone": {
+                  "style": "form"
+                },
+                "ImageFile": {
+                  "style": "form"
+                },
+                "ImageUrl": {
+                  "style": "form"
+                }
               }
             }
           }
@@ -118,19 +189,51 @@
         ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/CustomerUpdateDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CustomerUpdateDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CustomerUpdateDto"
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "Name": {
+                    "type": "string"
+                  },
+                  "Email": {
+                    "type": "string"
+                  },
+                  "Phone": {
+                    "type": "string"
+                  },
+                  "ImageFile": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "ImageUrl": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "Name": {
+                  "style": "form"
+                },
+                "Email": {
+                  "style": "form"
+                },
+                "Phone": {
+                  "style": "form"
+                },
+                "ImageFile": {
+                  "style": "form"
+                },
+                "ImageUrl": {
+                  "style": "form"
+                }
               }
             }
           }
@@ -216,6 +319,35 @@
             "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/OrderCreateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Orders"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrderUpdateDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrderUpdateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrderUpdateDto"
               }
             }
           }
@@ -402,19 +534,59 @@
         ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/ProductCreateDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ProductCreateDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ProductCreateDto"
+                "type": "object",
+                "properties": {
+                  "Name": {
+                    "type": "string"
+                  },
+                  "Description": {
+                    "type": "string"
+                  },
+                  "Price": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Stock": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "ProductCategoryId": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "ImageFile": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "ImageUrlString": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "Name": {
+                  "style": "form"
+                },
+                "Description": {
+                  "style": "form"
+                },
+                "Price": {
+                  "style": "form"
+                },
+                "Stock": {
+                  "style": "form"
+                },
+                "ProductCategoryId": {
+                  "style": "form"
+                },
+                "ImageFile": {
+                  "style": "form"
+                },
+                "ImageUrlString": {
+                  "style": "form"
+                }
               }
             }
           }
@@ -431,19 +603,66 @@
         ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/ProductUpdateDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ProductUpdateDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ProductUpdateDto"
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "Name": {
+                    "type": "string"
+                  },
+                  "Description": {
+                    "type": "string"
+                  },
+                  "Price": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Stock": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "ProductCategoryId": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "ImageFile": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "ImageUrlString": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "Name": {
+                  "style": "form"
+                },
+                "Description": {
+                  "style": "form"
+                },
+                "Price": {
+                  "style": "form"
+                },
+                "Stock": {
+                  "style": "form"
+                },
+                "ProductCategoryId": {
+                  "style": "form"
+                },
+                "ImageFile": {
+                  "style": "form"
+                },
+                "ImageUrlString": {
+                  "style": "form"
+                }
               }
             }
           }
@@ -498,60 +717,217 @@
           }
         }
       }
+    },
+    "/api/Products/upload-image": {
+      "post": {
+        "tags": [
+          "Products"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "file": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Users": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Users/{id}": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "FullName": {
+                    "type": "string"
+                  },
+                  "Document": {
+                    "type": "string"
+                  },
+                  "Email": {
+                    "type": "string"
+                  },
+                  "ImageFile": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "ProfileImageUrl": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "FullName": {
+                  "style": "form"
+                },
+                "Document": {
+                  "style": "form"
+                },
+                "Email": {
+                  "style": "form"
+                },
+                "ImageFile": {
+                  "style": "form"
+                },
+                "ProfileImageUrl": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Users/{id}/upload-image": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "file": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
-      "CustomerCreateDto": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "phone": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CustomerUpdateDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "phone": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "LoginRequestDto": {
+        "required": [
+          "email",
+          "password"
+        ],
         "type": "object",
         "properties": {
           "email": {
+            "minLength": 1,
             "type": "string",
-            "nullable": true
+            "format": "email"
           },
           "password": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           }
         },
         "additionalProperties": false
@@ -599,6 +975,49 @@
         },
         "additionalProperties": false
       },
+      "OrderDetailUpdateDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "productId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "unitPrice": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "OrderUpdateDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "customerId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderDetailUpdateDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "ProductCategoryCreateDto": {
         "type": "object",
         "properties": {
@@ -623,84 +1042,27 @@
           "name": {
             "type": "string",
             "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ProductCreateDto": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "nullable": true
           },
           "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "price": {
-            "type": "number",
-            "format": "double"
-          },
-          "stock": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "categoryId": {
-            "type": "string",
-            "format": "uuid"
-          }
-        },
-        "additionalProperties": false
-      },
-      "ProductUpdateDto": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "price": {
-            "type": "number",
-            "format": "double"
-          },
-          "stock": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "productCategoryId": {
-            "type": "string",
-            "format": "uuid"
-          }
-        },
-        "additionalProperties": false
-      },
-      "RegisterUserDto": {
-        "type": "object",
-        "properties": {
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "password": {
-            "type": "string",
-            "nullable": true
-          },
-          "confirmPassword": {
             "type": "string",
             "nullable": true
           }
         },
         "additionalProperties": false
       }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "apiKey",
+        "description": "Informe o token JWT no campo abaixo:\n\nExemplo: **Bearer eyJhbGciOiJIUzI1NiIs...**",
+        "name": "Authorization",
+        "in": "header"
+      }
     }
-  }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
 }

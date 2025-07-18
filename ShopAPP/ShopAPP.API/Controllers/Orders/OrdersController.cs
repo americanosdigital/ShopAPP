@@ -31,7 +31,8 @@ namespace ShopAPP.API.Controllers.Orders
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error retrieving orders");
-                return StatusCode(500, "An error occurred while retrieving orders.");
+                
+                return BadRequest(new { Message = "An error occurred while retrieving orders.", Details = ex.Message });
             }
         }
 
@@ -47,7 +48,8 @@ namespace ShopAPP.API.Controllers.Orders
             catch (Exception ex)
             {
                 _logger.LogError(ex, $"Error retrieving order with ID {id}");
-                return StatusCode(500, "An error occurred while retrieving the order.");
+                
+                return BadRequest(new { Message = "An error occurred while retrieving orders.", Details = ex.Message });
             }
         }
 

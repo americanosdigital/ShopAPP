@@ -10,8 +10,6 @@ using ShopAPP.Application.Interfaces.Email;
 using ShopAPP.Application.Interfaces.Orders;
 using ShopAPP.Application.Interfaces.ProductCategories;
 using ShopAPP.Application.Interfaces.Products;
-using ShopAPP.Application.Mappings;
-using ShopAPP.Application.Mappings.Products;
 using ShopAPP.Application.Services.Account;
 using ShopAPP.Application.Services.Customers;
 using ShopAPP.Application.Services.Email;
@@ -20,6 +18,7 @@ using ShopAPP.Application.Services.ProductCategories;
 using ShopAPP.Application.Services.Products;
 using ShopAPP.Domain.Interfaces;
 using ShopAPP.Infrastructure.Data.DataContext;
+using ShopAPP.Infrastructure.Data.Seeders;
 using ShopAPP.Infrastructure.Identity.Models;
 using ShopAPP.Infrastructure.Identity.Seed;
 using ShopAPP.Infrastructure.UnitOfWork;
@@ -28,7 +27,7 @@ using System.Text;
 var builder = WebApplication.CreateBuilder(args);
 
 // ============================
-// Services Configuration
+// Configuração de Serviços
 // ============================
 
 builder.Services.AddControllers();
@@ -129,14 +128,41 @@ builder.Services.AddCors(options =>
     });
 });
 
+
 var app = builder.Build();
 
+
+
 // ============================
-// Criação automática de pastas de uploads
+// Middlewares
+// ============================
+
+if (app.Environment.IsDevelopment())
+{
+    app.MapOpenApi();
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+else
+{
+    app.UseExceptionHandler("/error");
+}
+
+app.UseHttpsRedirection();
+app.UseCors("AllowFrontend");
+app.UseStaticFiles();
+app.UseRouting();
+app.UseAuthentication();
+app.UseAuthorization();
+
+app.MapControllers();
+app.MapScalarApiReference(options => options.WithTheme(ScalarTheme.DeepSpace));
+
+// ============================
+// Criar pastas de upload se não existirem
 // ============================
 var wwwrootPath = app.Environment.WebRootPath ?? Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
 var uploadBasePath = Path.Combine(wwwrootPath, "uploads");
-
 var uploadFolders = new[] { "products", "users", "customers" };
 
 foreach (var folder in uploadFolders)
@@ -149,43 +175,28 @@ foreach (var folder in uploadFolders)
 }
 
 // ============================
-// Seeder das Roles e Usuários
+// Execução dos Seeders
 // ============================
+using var scope = app.Services.CreateScope();
+var services = scope.ServiceProvider;
+
 try
 {
-    using var scope = app.Services.CreateScope();
-    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+    var context = services.GetRequiredService<ShopAppDbContext>();
+    var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+    var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
 
+    // ✅ Executa todos os Seeders em ordem correta
+    await ApplicationSeeder.SeedAsync(services);
+
+    // ✅ Seeds de Identity
     await IdentitySeeder.SeedRolesAsync(roleManager);
     await IdentitySeeder.SeedUsersAsync(userManager);
 }
 catch (Exception ex)
 {
-    Console.WriteLine($"Erro ao rodar Seed: {ex.Message}");
+    Console.WriteLine($"Erro ao executar Seeders: {ex.Message}");
     throw;
 }
-
-// ============================
-// App Pipeline
-// ============================
-
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-app.MapScalarApiReference(options => options.WithTheme(ScalarTheme.DeepSpace));
-
-app.UseHttpsRedirection();
-app.UseCors("AllowFrontend");
-app.UseStaticFiles();
-app.UseRouting();
-app.UseAuthentication();
-app.UseAuthorization();
-
-app.MapControllers();
 
 app.Run();

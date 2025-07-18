@@ -36,14 +36,16 @@ namespace ShopAPP.Infrastructure.Data.Mappings
                 .WithMany()
                 .HasForeignKey(od => od.ProductId)
                 .OnDelete(DeleteBehavior.Restrict);
+           
+            builder.Property(u => u.IsActive)
+                .HasDefaultValue(true);
 
-            builder.Property(od => od.CreatedAt)
-                .HasDefaultValueSql("GETUTCDATE()")
-                .IsRequired();
+            builder.Property(u => u.CreatedAt)
+           .HasDefaultValueSql("GETUTCDATE()");
 
-            builder.Property(od => od.UpdatedAt)
-                .IsRequired();
+            builder.Property(u => u.UpdatedAt);
+
+            builder.Property(u => u.DeletedAt);
         }
     }
-
 }

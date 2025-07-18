@@ -33,12 +33,14 @@ public class ProductMap : IEntityTypeConfiguration<Product>
             .WithMany(c => c.Products)
             .HasForeignKey(p => p.ProductCategoryId);
 
-        builder.Property(p => p.CreatedAt)
-       .HasDefaultValueSql("GETUTCDATE()")
-       .IsRequired();
+        builder.Property(u => u.IsActive)
+            .HasDefaultValue(true);
 
-        builder.Property(p => p.UpdatedAt)
-               .IsRequired();
+        builder.Property(u => u.CreatedAt)
+       .HasDefaultValueSql("GETUTCDATE()");
+
+        builder.Property(u => u.UpdatedAt);
+
+        builder.Property(u => u.DeletedAt);
     }
-
 }

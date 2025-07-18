@@ -340,6 +340,10 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "Bogus": {
+              "target": "Package",
+              "version": "[35.6.3, )"
+            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[9.0.6, )"

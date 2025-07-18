@@ -26,17 +26,23 @@ namespace ShopAPP.Infrastructure.Data.Mappings
                 .HasMaxLength(100);
 
             builder.Property(c => c.Phone)
-                .HasMaxLength(20);
+                .HasMaxLength(35);
 
             builder.Property(c => c.ImageUrl)
                 .HasMaxLength(300);
 
-            builder.Property(c => c.CreatedAt)
-                   .HasDefaultValueSql("GETUTCDATE()")
-                   .IsRequired();
+            builder.Property(u => u.IsActive)
+                .HasDefaultValue(true);
 
-            builder.Property(c => c.UpdatedAt)
-                   .IsRequired();
+            builder.Property(u => u.CreatedAt)
+           .HasDefaultValueSql("GETUTCDATE()");
+
+            builder.Property(u => u.UpdatedAt);
+
+            builder.Property(u => u.DeletedAt);
+
+            builder.Property(u => u.ImageUrl)
+         .HasMaxLength(300);
         }
     }
 }
