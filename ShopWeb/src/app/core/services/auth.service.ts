@@ -21,6 +21,10 @@ export class AuthService {
     );
   }
 
+register(formData: FormData): Observable<any> {
+  return this.http.post(`${this.apiUrl}/account/register`, formData);
+}
+
   logout(): void {
     localStorage.removeItem(this.tokenKey);
     this.isLoggedInSubject.next(false);

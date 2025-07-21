@@ -48,4 +48,9 @@ senha: ['', [Validators.required, Validators.minLength(8)]]
       error: () => this.errorMessage = 'Login inválido. Verifique suas credenciais.'
     });
   }
+
+  goToRegister(): void {
+  this.router.navigate(['/auth/register']);
+}
+
 }

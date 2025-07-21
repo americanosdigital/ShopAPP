@@ -5,7 +5,7 @@ using ShopAPP.Application.Interfaces.ProductCategories;
 
 namespace ShopAPP.API.Controllers.ProductCategories
 {
-    //[Authorize]
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class ProductCategoriesController : ControllerBase

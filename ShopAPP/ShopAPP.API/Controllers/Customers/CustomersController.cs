@@ -6,7 +6,7 @@ using ShopAPP.Application.Interfaces.Customers;
 
 namespace ShopAPP.API.Controllers.Customers
 {
-    //[Authorize]
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class CustomersController : ControllerBase

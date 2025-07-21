@@ -1,0 +1,107 @@
+# -----------------
+# .NET / ASP.NET Core
+# -----------------
+
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.vs/
+.vscode/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# User secrets
+secrets.json
+
+# Entity Framework Migrations
+Migrations/
+
+# dotnet watch
+**/Properties/launchSettings.json
+
+# Logs
+*.log
+logs/
+
+# Rider
+.idea/
+
+# JetBrains
+*.sln.iml
+
+# Visual Studio Code
+.vscode/
+
+# Mac OS
+.DS_Store
+
+# Windows thumbs
+Thumbs.db
+
+# node_modules from frontend inside .NET project (if exists)
+**/node_modules/
+
+# -----------------
+# Angular
+# -----------------
+
+# Angular build output
+dist/
+out-tsc/
+
+# Node.js modules
+node_modules/
+
+# Compiled TypeScript
+*.js
+*.js.map
+
+# Angular cache
+.angular/
+
+# Environment files (optional, if you have secrets)
+src/environments/environment*.ts
+
+# IDE settings
+*.swp
+*.swo
+*.bak
+
+# npm/yarn lock files (optional, depending on your workflow)
+# package-lock.json
+# yarn.lock
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+
+# Test coverage
+coverage/
+
+# Lint reports
+eslint-report.*
+tslint-report.*
+
+# IDE folders
+.idea/
+.vscode/
+
+# -----------------
+# Global Ignore for both
+# -----------------
+
+*.log
+*.bak
+*.tmp
+*.orig
+*.rej
+*.swn
+*.swp
+*.swo
+*.db

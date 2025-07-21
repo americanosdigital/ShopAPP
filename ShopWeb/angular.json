@@ -32,15 +32,15 @@
               }
             ],
             "styles": [
-  "node_modules/bootstrap/dist/css/bootstrap.min.css",
-  "node_modules/admin-lte/dist/css/adminlte.min.css",
-  "src/styles.scss"
-],
-"scripts": [
-  "node_modules/jquery/dist/jquery.min.js",
-  "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
-  "node_modules/admin-lte/dist/js/adminlte.min.js"
-]
+                "src/styles.scss",
+                "node_modules/admin-lte/dist/css/adminlte.min.css",
+                "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              ],
+              "scripts": [
+                "node_modules/jquery/dist/jquery.min.js",
+                "node_modules/admin-lte/dist/js/adminlte.min.js",
+                "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+              ]
           },
           "configurations": {
             "production": {
@@ -96,16 +96,16 @@
                 "input": "public"
               }
             ],
-            "styles": [
-  "node_modules/bootstrap/dist/css/bootstrap.min.css",
-  "node_modules/admin-lte/dist/css/adminlte.min.css",
-  "src/styles.scss"
-],
-"scripts": [
-  "node_modules/jquery/dist/jquery.min.js",
-  "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
-  "node_modules/admin-lte/dist/js/adminlte.min.js"
-]
+             "styles": [
+                "src/styles.scss",
+                "node_modules/admin-lte/dist/css/adminlte.min.css",
+                "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              ],
+              "scripts": [
+                "node_modules/jquery/dist/jquery.min.js",
+                "node_modules/admin-lte/dist/js/adminlte.min.js",
+                "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+              ]
           }
         }
       }

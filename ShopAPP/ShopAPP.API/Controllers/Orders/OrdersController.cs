@@ -6,7 +6,7 @@ using ShopAPP.Application.Interfaces.Orders;
 
 namespace ShopAPP.API.Controllers.Orders
 {
-    //[Authorize]
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class OrdersController : ControllerBase

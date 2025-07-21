@@ -6,7 +6,7 @@ using ShopAPP.Application.DTOs.Account;
 
 namespace ShopAPP.API.Controllers.Account
 {
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     [ApiController]
     [Route("api/[controller]")]
     public class UsersController : ControllerBase

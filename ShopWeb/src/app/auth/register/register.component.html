@@ -1,1 +1,48 @@
-<p>register works!</p>
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card shadow p-4" style="min-width: 400px;">
+    <h4 class="text-center mb-3">Shop Web - Criar conta</h4>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="mb-2">
+        <label>Nome completo</label>
+        <input type="text" class="form-control" formControlName="fullName" placeholder="Seu nome completo">
+      </div>
+
+      <div class="mb-2">
+        <label>E-mail</label>
+        <input type="email" class="form-control" formControlName="email" placeholder="email@exemplo.com">
+      </div>
+
+      <div class="mb-2">
+        <label>Senha</label>
+        <input type="password" class="form-control" formControlName="password" placeholder="Mínimo 8 caracteres">
+      </div>
+
+      <div class="mb-2">
+        <label>Documento (CPF/CNPJ)</label>
+        <input type="text" class="form-control" formControlName="document" placeholder="123.456.789-00">
+      </div>
+
+      <div class="mb-2">
+        <label>Perfil</label>
+        <select class="form-select" formControlName="role">
+          <option value="">Selecione</option>
+          <option value="cliente">Cliente</option>
+          <option value="admin">Administrador</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label>Foto de perfil</label>
+        <input type="file" class="form-control" (change)="onFileChange($event)">
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100" [disabled]="registerForm.invalid">Registrar</button>
+      <button type="button" class="btn btn-link w-100 mt-2" (click)="router.navigate(['/auth/login'])">
+        Já possui conta? <strong>Entrar</strong>
+      </button>
+
+      <div *ngIf="errorMessage" class="text-danger mt-2">{{ errorMessage }}</div>
+    </form>
+  </div>
+</div>

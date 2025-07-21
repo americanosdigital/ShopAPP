@@ -22,7 +22,7 @@
                 </div>
             </div>
             <button n type="submit" class="btn btn-primary mb-2 w-100" [disabled]="loginForm.invalid">Entrar</button>
-            <button type="button" class="btn btn-light mb-2 w-100"> Não possui conta? <strong>Cadastre aqui!</strong></button>
+            <button type="button" class="btn btn-light mb-2 w-100" (click)="goToRegister()"> Não possui conta? <strong>Cadastre aqui!</strong></button>
         </form>
     </div>
 </div>

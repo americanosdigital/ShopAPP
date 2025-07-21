@@ -18,9 +18,11 @@
     "@angular/platform-browser": "^19.2.0",
     "@angular/platform-browser-dynamic": "^19.2.0",
     "@angular/router": "^19.2.0",
-    "admin-lte": "^3.2.0",
+    "admin-lte": "^4.0.0-rc3",
     "bootstrap": "^5.3.7",
     "jquery": "^3.7.1",
+    "lucide": "^0.255.0",
+    "lucide-angular": "^0.255.0",
     "popper.js": "^1.16.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
@@ -31,6 +33,7 @@
     "@angular/cli": "^19.2.15",
     "@angular/compiler-cli": "^19.2.0",
     "@types/jasmine": "~5.1.0",
+    "autoprefixer": "^10.4.21",
     "husky": "^9.1.7",
     "jasmine-core": "~5.6.0",
     "karma": "~6.4.0",
@@ -38,6 +41,8 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17",
     "typescript": "~5.7.2"
   }
 }

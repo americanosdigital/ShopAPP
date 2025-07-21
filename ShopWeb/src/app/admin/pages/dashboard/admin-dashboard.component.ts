@@ -1,15 +1,22 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LucideAngularModule } from 'lucide-angular';
+import { User, Package, ShoppingCart, DollarSign } from 'lucide';
 
 @Component({
   selector: 'app-admin-dashboard',
   standalone: true,
-  imports: [CommonModule],
-  template: `
-    <div class="p-6">
-      <h1 class="text-3xl font-bold mb-4">Bem-vindo admin-dashboard!</h1>
-      <p>Aqui você verá os admin-dashboard.component em destaque.</p>
-    </div>
-  `
+  imports: [
+    CommonModule,
+    LucideAngularModule
+  ],
+  templateUrl: './admin-dashboard.component.html'
 })
-export class admindashboardcomponent {}
+export class AdminDashboardComponent {
+  icons = {
+    User,
+    Package,
+    ShoppingCart,
+    DollarSign
+  };
+}

@@ -7,7 +7,7 @@ using ShopAPP.Application.Interfaces.Products;
 
 namespace ShopAPP.API.Controllers.Products
 {
-    //[Authorize]
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class ProductsController : ControllerBase
